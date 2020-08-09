@@ -103,7 +103,7 @@ theme: phantom
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
-  type: git
+  type: github
   repo: https://github.com/Anku2211/anku2211.github.io.git
   branch: gh-pages
   message:  
