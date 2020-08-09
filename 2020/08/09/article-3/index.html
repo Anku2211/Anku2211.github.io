@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!--Description-->
+    
+        <meta name="description" content="The HTML5 Canvas allows us to draw the different shapes on the canvas by the different methods available in Canvas. It also allows us to edit the coor">
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="John Doe">
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="Different Methods Of Drawing And Editing In HTML5 Canvas"/>
+    
+
+    <!--Open Graph Site Name-->
+    <meta property="og:site_name" content="Ankita Yadav"/>
+
+    <!--Page Cover-->
+    
+        <meta property="og:image" content=""/>
+    
+
+    <!-- Title -->
+    
+    <title>Different Methods Of Drawing And Editing In HTML5 Canvas - Ankita Yadav</title>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/sass/main.css">
+
+
+    <!--[if lt IE 8]>
+        
+<script src="/js/ie/html5shiv.js"></script>
+
+    <![endif]-->
+
+    <!--[if lt IE 8]>
+        
+<link rel="stylesheet" href="/sass/ie8.css">
+
+    <![endif]-->
+
+    <!--[if lt IE 9]>
+        
+<link rel="stylesheet" href="/sass/ie9.css">
+
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdn.rawgit.com/noelboss/featherlight/1.3.5/release/featherlight.min.css" type="text/css" rel="stylesheet" />
+
+    <!-- Google Analytics -->
+    
+
+
+<meta name="generator" content="Hexo 5.0.0"></head>
+
+<body>
+
+    <div id="wrapper">
+
+        <!-- Menu -->
+        <!-- Header -->
+<header id="header">
+    <div class="inner">
+
+        <!-- Logo -->
+        <a href="/" class="logo">
+            <span class="symbol"><img src="/images/ankita-icon.png" alt="" /></span><span class="title">Ankita Yadav</span>
+        </a>
+
+        <!-- Nav -->
+        <nav>
+            <ul>
+                <li><a href="#menu">Menu</a></li>
+            </ul>
+        </nav>
+
+    </div>
+</header>
+
+<!-- Menu -->
+<nav id="menu">
+    <h2>Menu</h2>
+    <ul>
+        
+            <li>
+                <a href="/">Home</a>
+            </li>
+        
+            <li>
+                <a href="/archives">Archives</a>
+            </li>
+        
+            <li>
+                <a href="/about.html">About</a>
+            </li>
+        
+    </ul>
+</nav>
+
+
+        <div id="main">
+            <div class="inner">
+
+                <!-- Main Content -->
+                
+
+    <h1>Different Methods Of Drawing And Editing In HTML5 Canvas</h1>
+
+
+
+<!-- Gallery -->
+
+
+<!-- Content -->
+<p>The HTML5 Canvas allows us to draw the different shapes on the canvas by the different methods available in Canvas. It also allows us to edit the coordinates, origin and shapes and filling and stroking to different shapes.<br>Here we will see some further concepts or methods which we can use for drawing on Canvas.</p>
+<p>Path, stroking and Filling</p>
+<p>We can fill and stroke the path, arc and rectangles by fill( ), stroke( ) method respectively. When we fill an open path in canvas the browser fills the path as if it were closed.Here are some method related to this -</p>
+<p>beginPath( ) - This method begins a new path.</p>
+<p>rect( ) / arc( ) - Both create paths for rectangles and arcs, respectively.</p>
+<p>stroke( ) / fill( ) - Strokes and fills the path.</p>
+<p>closePath( ) - We have to call this method if we want to close an arc.</p>
+<p>Path :</p>
+<p>Canvas uses a non-zero winding rule for filling a path that intersects with itself. This rule says that every time a line crosses itself add one to the counter for the clockwise segment of the path and subtract one from the counterclockwise path segment.</p>
+<p>If the final output count is non-zero then the area lies within the path, and the browser fills it when we invoke fill( ) method. If the final count is zero, then the area does not lie within the path, and the browser does not fill it. We can also apply this rule for the cutout of a shape to fill it. </p>
+<p>Lines &amp;  PathT</p>
+<p>The Canvas provides two methods to create a linear path moveTo( ) and lineTo( ). We can create a path by combining these two methods and then we have to use the stroke( ) method to draw the path.</p>
+<p>Rubber-band Lines</p>
+<p>We use the method called rubberbandShape( ) to draw the rubberband lines. As we drag the mouse it maintains the rubberbandRect( ) which creates the rectangle. This rectangle defined by the two corner -<br>The location of the mouse down event and the mouse’s current location.<br>For every mouse move event that occurs while the user is dragging the mouse, the application does three things:</p>
+<pre><code>1.Restores the drawing surface
+2.Update rubberbandRect
+3.Draws a line from the mouse down location to the current mouse location </code></pre>
+<p>Drawing Dashed Lines</p>
+<p>Canvas context does not provide a method to draw dashed or dotted lines but we can draw it by ourselves. The code calculates the length of the line and, based on the length of each dash, figures out how many dashes the line will contain. Based on the number of dashes, the code draws a dashed line by repeatedly drawing short line segments. </p>
+<p>Dial &amp; Gauges</p>
+<p>If we want to make a dial showing degrees of a circle then we have to use cutout techniques to give the ring a translucent background by using arc( ) method to draw the outer circle clockwise and inner circle counterclockwise.</p>
+<p>Bezier Curves</p>
+<p>Originally Bezier Curves used to be designed in automobile bodies but today they are widely used  in most computer graphics systems and HTML5 Canvas is one of them.<br>There are two types of bezier curves -</p>
+<p>Quadratic curve<br>Cubic curve</p>
+<p>Quadratic curves are second degree curves, meaning that they are designed by three points - Two anchor points and one control point.<br>Cubic bezier curves are third degree curve, so they are designed with four points -<br>Two anchor points and two control points.</p>
+<p>Quadratic Bezier Curve</p>
+<p>It is a simple curve that curves only in one direction. We use context.quadraticCurveTo( ) method for this. This method takes four arguments, which represents X and Y coordinates of two points. The first point is the curve’s control which determines the shape of the curve, the second point is the anchor point. The quadraticCurveTo( ) method connects the anchor point to the last point we designed in the curve path.</p>
+<p>Cubic Bezier Curve</p>
+<p>We use bezierCurveTo( ) method to create a path for a cubic bezier curve. It is a two directional curve, we use to pass three points for this method, two points are control points and last points is the anchor point. </p>
+<p>Polygons</p>
+<p>We can use the moveTo( ) and lineTo( ) method combined with some simple trigonometry to draw polygons with any number of sides.</p>
+<p>The getPolygonPoint( ) function creates and returns an array of points for a polygon<br>Defined by the five parameters you passed to the function.<br>The createPolygonPath( ) function calls getPolygonPoint() to obtain the array of points for the polygon, moves to the first point and then creates a path encompassing all the polygon’s vertices. Finally it is the drawRubber-bandShape( ) function that actually draws the polygon.</p>
+
+
+<!-- Tags -->
+
+
+
+<div class="tags">
+    
+</div>
+
+
+
+<!-- Comments -->
+<div>
+    
+    <hr />
+    <h3>Comments:</h3>
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+
+
+</div>
+
+
+
+            </div>
+        </div>
+
+        <!-- Footer -->
+<footer id="footer">
+    <div class="inner">
+        <section>
+            <h2>About</h2>
+            <div>
+                This theme was initially developed by <a href="http://html5up.net" target="_blank">HTML5 UP</a>. It is adapted for Hexo by <a href="http://www.codeblocq.com/" target="_blank">Jonathan Klughertz</a>.<br />The source code is available on <a href="https://github.com/klugjo/hexo-theme-phantom" target="_blank">GitHub</a>.
+            </div>
+        </section>
+        <section>
+            <h2>Follow</h2>
+            <ul class="icons">
+                
+                
+                    <li><a href="https://www.facebook.com/" class="icon style2 fa-facebook" target="_blank" ><span class="label">Facebook</span></a></li>
+                
+                
+                
+                    <li><a href="https://github.com/Anku2211" class="icon style2 fa-github" target="_blank" ><span class="label">GitHub</span></a></li>
+                
+                
+                
+                    <li><a href="\ankita@plantyouridea.com" class="icon style2 fa-envelope-o" target="_blank" ><span class="label">Email</span></a></li>
+                
+            </ul>
+        </section>
+        <ul class="copyright">
+            <li>&copy; Ankita Yadav . All rights reserved</li>
+            <li>Design: <a href="http://html5up.net" target="_blank">HTML5 UP</a></li>
+            <li>Hexo: <a href="http://www.codeblocq.com/" target="_blank">Jonathan Klughertz</a></li>
+        </ul>
+    </div>
+</footer>
+    </div>
+
+    <!-- After footer scripts -->
+    
+<!-- jQuery -->
+
+<script src="/js/jquery.min.js"></script>
+
+
+<!-- skel -->
+
+<script src="/js/skel.min.js"></script>
+
+
+<!-- Custom Code -->
+
+<script src="/js/util.js"></script>
+
+
+<!--[if lte IE 8]>
+
+<script src="/js/ie/respond.min.js"></script>
+
+<![endif]-->
+
+<!-- Custom Code -->
+
+<script src="/js/main.js"></script>
+
+
+<!-- Gallery -->
+<script src="//cdn.rawgit.com/noelboss/featherlight/1.3.5/release/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Disqus Comments -->
+
+<script type="text/javascript">
+    var disqus_shortname = 'klugjo';
+
+    (function(){
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+</body>
+
+</html>

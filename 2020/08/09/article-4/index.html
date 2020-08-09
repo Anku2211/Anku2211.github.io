@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!--Description-->
+    
+        <meta name="description" content="The Canvas element provides  some basic features that you can find in a simple text editor, such as text selection, copy and paste, and scrolling. Can">
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="John Doe">
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="Modification of TEXT in HTML5 Canvas"/>
+    
+
+    <!--Open Graph Site Name-->
+    <meta property="og:site_name" content="Ankita Yadav"/>
+
+    <!--Page Cover-->
+    
+        <meta property="og:image" content=""/>
+    
+
+    <!-- Title -->
+    
+    <title>Modification of TEXT in HTML5 Canvas - Ankita Yadav</title>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/sass/main.css">
+
+
+    <!--[if lt IE 8]>
+        
+<script src="/js/ie/html5shiv.js"></script>
+
+    <![endif]-->
+
+    <!--[if lt IE 8]>
+        
+<link rel="stylesheet" href="/sass/ie8.css">
+
+    <![endif]-->
+
+    <!--[if lt IE 9]>
+        
+<link rel="stylesheet" href="/sass/ie9.css">
+
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdn.rawgit.com/noelboss/featherlight/1.3.5/release/featherlight.min.css" type="text/css" rel="stylesheet" />
+
+    <!-- Google Analytics -->
+    
+
+
+<meta name="generator" content="Hexo 5.0.0"></head>
+
+<body>
+
+    <div id="wrapper">
+
+        <!-- Menu -->
+        <!-- Header -->
+<header id="header">
+    <div class="inner">
+
+        <!-- Logo -->
+        <a href="/" class="logo">
+            <span class="symbol"><img src="/images/ankita-icon.png" alt="" /></span><span class="title">Ankita Yadav</span>
+        </a>
+
+        <!-- Nav -->
+        <nav>
+            <ul>
+                <li><a href="#menu">Menu</a></li>
+            </ul>
+        </nav>
+
+    </div>
+</header>
+
+<!-- Menu -->
+<nav id="menu">
+    <h2>Menu</h2>
+    <ul>
+        
+            <li>
+                <a href="/">Home</a>
+            </li>
+        
+            <li>
+                <a href="/archives">Archives</a>
+            </li>
+        
+            <li>
+                <a href="/about.html">About</a>
+            </li>
+        
+    </ul>
+</nav>
+
+
+        <div id="main">
+            <div class="inner">
+
+                <!-- Main Content -->
+                
+
+    <h1>Modification of TEXT in HTML5 Canvas</h1>
+
+
+
+<!-- Gallery -->
+
+
+<!-- Content -->
+<p>The Canvas element provides  some basic features that you can find in a simple text editor, such as text selection, copy and paste, and scrolling. Canvas supports some text necessities such as stroking and filling text, placing text on the canvas and measuring the width of text in pixels. </p>
+<h4 id="The-canvas-context-provides-three-methods-related-to-text"><a href="#The-canvas-context-provides-three-methods-related-to-text" class="headerlink" title="The canvas context provides three methods related to text :"></a>The canvas context provides three methods related to text :</h4><pre><code>1.strokeText (text, x, y)
+2.fillText (text, x, y)
+3.measureText(text)</code></pre>
+<p>The measureText( ) method returns an object with a width property, which represents the width of the text that we pass to the method.</p>
+<h4 id="There-are-three-Canvas-context-properties-that-are-related-to-text"><a href="#There-are-three-Canvas-context-properties-that-are-related-to-text" class="headerlink" title="There are three Canvas context properties that are related to text :"></a>There are three Canvas context properties that are related to text :</h4><pre><code>1.font
+2.textAlign
+3.textBaseline </code></pre>
+<p>The font property lets us set the font of text which we draw, and textAlign and textBaseline let us position text within the canvas. </p>
+<p>It uses fillText( ) and strokeText( ) to fill and stroke the text. Each of these methods takes three arguments. The  first argument is the text, and the remaining two arguments specify the text’s location. </p>
+<p>The exact location of the text depends upon the textAlign and textBaseline properties. Both strokeText and fillText takes an optional fourth argument that specifies the width of text. If  we use strokeText ( ) or fillText( ) with the optional fourth argument and the text exceeds that width, then the Canvas specification requires the browser to resize the text so that it fits in the specified width.  Browsers can change the size of font or scale the text horizontally, but in both the cases the text must still be readable</p>
+<pre><code>Eg.    context.fillText (text, 65, 450);
+       context.strokeText (text, 65, 450);</code></pre>
+<h3 id="Setting-Font-Properties"><a href="#Setting-Font-Properties" class="headerlink" title="Setting Font Properties"></a>Setting Font Properties</h3><p>We can set the font of the text that we draw in a canvas with the context’s font property. The default Canvas font is 10px sans-serif. The default value for font-style. font -variant, and font weight are all normal.</p>
+<pre><code>Font Property              Valid Values
+
+font-style                 Three values are allowed : normal, italic oblique.            
+
+font-variant               Two values are allowed : normal, small-caps.
+
+font-weight                Defines the thickness of font’s characters : normal   
+                           bold, bolder, lighter.(Goes from 100 to 900)
+
+font-size                  values for font size : xx-small, x-small, medium, large,
+                           x-large, xx-large, smaller, larger, length, %.
+
+line-height                The browser always forces this property to its default 
+                           value, which is normal.
+
+font-family                Two types of font family names are allowed : family-name, 
+                           such as Helvetica, verdana, palatino and generic-family 
+                           names : serif, sans-serif, monospace, cursive and fantasy.</code></pre>
+<h3 id="Positioning-Text"><a href="#Positioning-Text" class="headerlink" title="Positioning Text"></a>Positioning Text</h3><p>We can set both the horizontal and vertical position of the text in the Canvas.  For the positioning of text we use textAlign and textBaseline methods.</p>
+<pre><code>   Property                Description
+
+   text-Align              Specifies how text is aligned horizontally. Valid values are
+                           start, left, center, right, end. The default value is start.
+
+   textBaseline            Specifies how text is aligned vertically. Valid values are
+                           top, bottom, middle, alphabetic, ideographic, and hanging. The default value is alphabetic.</code></pre>
+<h3 id="Valid-values-for-textAlign-are-as-follows"><a href="#Valid-values-for-textAlign-are-as-follows" class="headerlink" title="Valid values for textAlign are as follows :"></a>Valid values for textAlign are as follows :</h3><pre><code>start
+center
+end
+left
+right                             </code></pre>
+<h3 id="Valid-values-for-textAlign-are-as-follows-1"><a href="#Valid-values-for-textAlign-are-as-follows-1" class="headerlink" title="Valid values for textAlign are as follows :"></a>Valid values for textAlign are as follows :</h3><pre><code>top       
+center
+end
+left     
+bottom 
+middle 
+alphabetic
+ideographic
+hanging  </code></pre>
+<h3 id="Centering-Text"><a href="#Centering-Text" class="headerlink" title="Centering Text"></a>Centering Text</h3><p>We can center text about a point with the textAlign and textBaseline attributes of the Canvas context.<br>          context.textAlign = “center”<br>          context.textBaseline = “middle”  </p>
+<h3 id="Measuring-Text"><a href="#Measuring-Text" class="headerlink" title="Measuring Text"></a>Measuring Text</h3><p>To do anything interesting with text, we must be able to measure the width and height of text. To place the cursor at the end of a line of text, we must calculate the width of the text. The Canvas context provides a measureText( ) method that lets us measure the width, in  pixels, of a string. The measureText( ) method returns a TextMatrics object that contains a single property : the width of the string.</p>
+<pre><code>       getWidth : function(context) &#123;
+                  Return context.measureText (text).width;
+                  &#125;</code></pre>
+<h3 id="Drawing-Text-Around-An-Arc"><a href="#Drawing-Text-Around-An-Arc" class="headerlink" title="Drawing Text Around An Arc"></a>Drawing Text Around An Arc</h3><p>We can draw text around an arc with the following steps :</p>
+<pre><code>1.Calculating each character’s position along the arc.
+2.Translating the context to that position.
+3.Rotating the context by π-angle.
+4.Stroking or Filling the character or we can do both.</code></pre>
+
+
+<!-- Tags -->
+
+
+
+<div class="tags">
+    
+</div>
+
+
+
+<!-- Comments -->
+<div>
+    
+    <hr />
+    <h3>Comments:</h3>
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+
+
+</div>
+
+
+
+            </div>
+        </div>
+
+        <!-- Footer -->
+<footer id="footer">
+    <div class="inner">
+        <section>
+            <h2>About</h2>
+            <div>
+                This theme was initially developed by <a href="http://html5up.net" target="_blank">HTML5 UP</a>. It is adapted for Hexo by <a href="http://www.codeblocq.com/" target="_blank">Jonathan Klughertz</a>.<br />The source code is available on <a href="https://github.com/klugjo/hexo-theme-phantom" target="_blank">GitHub</a>.
+            </div>
+        </section>
+        <section>
+            <h2>Follow</h2>
+            <ul class="icons">
+                
+                
+                    <li><a href="https://www.facebook.com/" class="icon style2 fa-facebook" target="_blank" ><span class="label">Facebook</span></a></li>
+                
+                
+                
+                    <li><a href="https://github.com/Anku2211" class="icon style2 fa-github" target="_blank" ><span class="label">GitHub</span></a></li>
+                
+                
+                
+                    <li><a href="\ankita@plantyouridea.com" class="icon style2 fa-envelope-o" target="_blank" ><span class="label">Email</span></a></li>
+                
+            </ul>
+        </section>
+        <ul class="copyright">
+            <li>&copy; Ankita Yadav . All rights reserved</li>
+            <li>Design: <a href="http://html5up.net" target="_blank">HTML5 UP</a></li>
+            <li>Hexo: <a href="http://www.codeblocq.com/" target="_blank">Jonathan Klughertz</a></li>
+        </ul>
+    </div>
+</footer>
+    </div>
+
+    <!-- After footer scripts -->
+    
+<!-- jQuery -->
+
+<script src="/js/jquery.min.js"></script>
+
+
+<!-- skel -->
+
+<script src="/js/skel.min.js"></script>
+
+
+<!-- Custom Code -->
+
+<script src="/js/util.js"></script>
+
+
+<!--[if lte IE 8]>
+
+<script src="/js/ie/respond.min.js"></script>
+
+<![endif]-->
+
+<!-- Custom Code -->
+
+<script src="/js/main.js"></script>
+
+
+<!-- Gallery -->
+<script src="//cdn.rawgit.com/noelboss/featherlight/1.3.5/release/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Disqus Comments -->
+
+<script type="text/javascript">
+    var disqus_shortname = 'klugjo';
+
+    (function(){
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+</body>
+
+</html>

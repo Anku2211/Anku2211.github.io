@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!--Description-->
+    
+        <meta name="description" content="We can draw images, scaled or unscaled, anywhere in the Canvas, and we can access and manipulate the color and transparency of each pixel. By combinin">
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="John Doe">
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="Images and Videos in HTML5 Canvas"/>
+    
+
+    <!--Open Graph Site Name-->
+    <meta property="og:site_name" content="Ankita Yadav"/>
+
+    <!--Page Cover-->
+    
+        <meta property="og:image" content=""/>
+    
+
+    <!-- Title -->
+    
+    <title>Images and Videos in HTML5 Canvas - Ankita Yadav</title>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/sass/main.css">
+
+
+    <!--[if lt IE 8]>
+        
+<script src="/js/ie/html5shiv.js"></script>
+
+    <![endif]-->
+
+    <!--[if lt IE 8]>
+        
+<link rel="stylesheet" href="/sass/ie8.css">
+
+    <![endif]-->
+
+    <!--[if lt IE 9]>
+        
+<link rel="stylesheet" href="/sass/ie9.css">
+
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdn.rawgit.com/noelboss/featherlight/1.3.5/release/featherlight.min.css" type="text/css" rel="stylesheet" />
+
+    <!-- Google Analytics -->
+    
+
+
+<meta name="generator" content="Hexo 5.0.0"></head>
+
+<body>
+
+    <div id="wrapper">
+
+        <!-- Menu -->
+        <!-- Header -->
+<header id="header">
+    <div class="inner">
+
+        <!-- Logo -->
+        <a href="/" class="logo">
+            <span class="symbol"><img src="/images/ankita-icon.png" alt="" /></span><span class="title">Ankita Yadav</span>
+        </a>
+
+        <!-- Nav -->
+        <nav>
+            <ul>
+                <li><a href="#menu">Menu</a></li>
+            </ul>
+        </nav>
+
+    </div>
+</header>
+
+<!-- Menu -->
+<nav id="menu">
+    <h2>Menu</h2>
+    <ul>
+        
+            <li>
+                <a href="/">Home</a>
+            </li>
+        
+            <li>
+                <a href="/archives">Archives</a>
+            </li>
+        
+            <li>
+                <a href="/about.html">About</a>
+            </li>
+        
+    </ul>
+</nav>
+
+
+        <div id="main">
+            <div class="inner">
+
+                <!-- Main Content -->
+                
+
+    <h1>Images and Videos in HTML5 Canvas</h1>
+
+
+
+<!-- Gallery -->
+
+
+<!-- Content -->
+<p>We can draw images, scaled or unscaled, anywhere in the Canvas, and we can access and manipulate the color and transparency of each pixel. By combining image manipulation with other methods of Canvas API we can create extra effects, such as animations and multiplayer games, data visualization or particle physics simulations.</p>
+<p>The Canvas context provides four methods for drawing and manipulating images : </p>
+<p>drawImage( )<br>getImageData( )<br>putImageData( )<br>createImageData( ) </p>
+<p>We can draw an image into a Canvas by drawImage( ) method as well as another canvas into a canvas, or a  video frame into a canvas by this method.</p>
+<p>getImageData( ) gives us access to the underlying pixels of an image, and putImageData( ) lets us put pixels back into an image.</p>
+<p>We can create blank image data objects with createImageData( ) method. We can pass  the method either the width &amp; height of image data in css pixels, or we can pass the method an existing ImageData object, in which  case the method returns a new blank ImageData object with the same width &amp; height as the object you passed to the method.</p>
+<p>Draw Images</p>
+<p>drawImage( ) method lets us draw all or part of an image, anywhere inside a canvas, and it lets us scale the image along the way. We can also draw into an offscreen canvas, which lets us do clever things with images, such as panning an image, or fading an image into canvas.</p>
+<p>Draw an image into a Canvas</p>
+<p>   var canvas = document.getElementById(‘canvas’),<br>   context = canvas.getContext(‘2d’),<br>   image = new Image();<br>   image.src = ‘./img/wall1.jpg’; image.onload = function(e) {<br>   context.drawImage(image,0,0); };</p>
+<p>By using the above code we can create an image. The above code sets the source of the image and after waiting for the image to load, draws the image into the canvas’s upper-left corner. If you draw the image before it’s loaded then according to the canvas specification drawImage( ) will fail.</p>
+<p>The drawImage( ) Method</p>
+<p>The drawImage method draws an image referred to as the source image, into a canvas, referred to as the destination canvas. It lets us draw every part of the image scaled or unscaled.  The drawImage ( ) method can take three different argument sets :</p>
+<p>drawImage( image, dx, dy)<br>drawImage( image, dx, dy, dw, dh )<br>drawImage( image, sx, sy, sw, sh, dx, dy, dw, dy ) </p>
+<p>The first argument in all three cases is an image but it can be another canvas or video element. In the first  use of drawImage( ) listed above draws an entire image at a specified location in the destination canvas.<br>The second use of drawImage ( ) also draws an entire image at a specified location in the destination canvas but with scaled image to a specific width and height.<br>The third use of drawImages ( ) draws all or part of an image to a specific location in the destination canvas which is scaled to a specific width and height.</p>
+<p>Scaling Images</p>
+<p>function drawImage() {<br>context.clearRect(0, 0, canvas.width, canvas.height);<br>if (scaleCheckbox.checked) {<br>context.drawImage(image, 0, 0, canvas.width, canvas.height);<br>}<br>else {<br>context.drawImage(image, 0, 0); }<br>}</p>
+<p>With the help of above code by putting a checkbox we can draw a scaled image in the canvas.</p>
+<p>Offscreen Canvases</p>
+<p>Offscreen canvases are used as temporary holding places for images. As the user manipulates the scale then it copies the offscreen canvas to the onscreen canvas and it also copies the object of the offscreen canvas to the onscreen canvas.<br>Using an offscreen canvas typically involves four steps :</p>
+<p>   1.Create the offscreen canvas element.<br>   2.Set the offscreen canvas’s width &amp; height.<br>   3.Draw into the offscreen canvas.<br>   4.Copy all or the part of the offscreen canvas onscreen.</p>
+<p>We can  create a offscreen canvas like this :</p>
+<pre><code>     var offscreenCanvas = document.createElement(‘canvas’);</code></pre>
+<p>This one line code  creates a new canvas that is not attached  to any DOM element and therefore will not be visible, that’s why the term is offscreen. By default the size of the offscreen canvas will be the default size for canvases that are 300pixel wide and 150 pixel high.</p>
+<p>So these all are the different methods related to drawing of images  by which we can draw and can also manipulate the images. All these methods provide us to scale, draw images as well as another canvas into the Canvas by which we can make our stuff much better.</p>
+
+
+<!-- Tags -->
+
+
+
+<div class="tags">
+    
+</div>
+
+
+
+<!-- Comments -->
+<div>
+    
+    <hr />
+    <h3>Comments:</h3>
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+
+
+</div>
+
+
+
+            </div>
+        </div>
+
+        <!-- Footer -->
+<footer id="footer">
+    <div class="inner">
+        <section>
+            <h2>About</h2>
+            <div>
+                This theme was initially developed by <a href="http://html5up.net" target="_blank">HTML5 UP</a>. It is adapted for Hexo by <a href="http://www.codeblocq.com/" target="_blank">Jonathan Klughertz</a>.<br />The source code is available on <a href="https://github.com/klugjo/hexo-theme-phantom" target="_blank">GitHub</a>.
+            </div>
+        </section>
+        <section>
+            <h2>Follow</h2>
+            <ul class="icons">
+                
+                
+                    <li><a href="https://www.facebook.com/" class="icon style2 fa-facebook" target="_blank" ><span class="label">Facebook</span></a></li>
+                
+                
+                
+                    <li><a href="https://github.com/Anku2211" class="icon style2 fa-github" target="_blank" ><span class="label">GitHub</span></a></li>
+                
+                
+                
+                    <li><a href="\ankita@plantyouridea.com" class="icon style2 fa-envelope-o" target="_blank" ><span class="label">Email</span></a></li>
+                
+            </ul>
+        </section>
+        <ul class="copyright">
+            <li>&copy; Ankita Yadav . All rights reserved</li>
+            <li>Design: <a href="http://html5up.net" target="_blank">HTML5 UP</a></li>
+            <li>Hexo: <a href="http://www.codeblocq.com/" target="_blank">Jonathan Klughertz</a></li>
+        </ul>
+    </div>
+</footer>
+    </div>
+
+    <!-- After footer scripts -->
+    
+<!-- jQuery -->
+
+<script src="/js/jquery.min.js"></script>
+
+
+<!-- skel -->
+
+<script src="/js/skel.min.js"></script>
+
+
+<!-- Custom Code -->
+
+<script src="/js/util.js"></script>
+
+
+<!--[if lte IE 8]>
+
+<script src="/js/ie/respond.min.js"></script>
+
+<![endif]-->
+
+<!-- Custom Code -->
+
+<script src="/js/main.js"></script>
+
+
+<!-- Gallery -->
+<script src="//cdn.rawgit.com/noelboss/featherlight/1.3.5/release/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Disqus Comments -->
+
+<script type="text/javascript">
+    var disqus_shortname = 'klugjo';
+
+    (function(){
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+</body>
+
+</html>
